@@ -15,12 +15,12 @@ download_miaona(){
 	systemctl restart ntpd
 	echo "正在更新配置文件 . . ."
 	rm -f /etc/soga/soga.conf
-	wget -P /etc/v2ray https://raw.githubusercontent.com/mps1209/miaoconfig/master/soga.conf
+	wget -P /etc/soga https://raw.githubusercontent.com/mps1209/miaoconfig/master/soga.conf
 	cd /etc/soga
 	printf "请输入节点ID："
 	read -r nodeId <&1
 	sed -i "s/ID_HERE/$nodeId/" soga.conf
-	service v2ray restart
+	soga start
 	shon_online
 }
 

@@ -30,12 +30,25 @@ start_miaona(){
 	shon_online
 }
 
+uninstall_posidon(){
+	echo "正在卸载posidon . . ."
+	set -x
+	systemctl stop v2ray
+	systemctl disable v2ray
+	service v2ray stop
+	update-rc.d -f v2ray remove
+	rm -rf /usr/bin/v2ray /etc/init.d/v2ray /lib/systemd/system/v2ray.service
+	set -
+	shon_online
+}
+
 shon_online(){
 echo "请选择您需要进行的操作:"
 echo "1) 安装 soga"
 echo "2) 启动 soga"
 echo "3) 查看 soga状态"
-echo "4) 退出脚本"
+echo "4) 卸载 posidon"
+echo "5) 退出脚本"
 echo "   Version：1.0.0"
 echo ""
 echo -n "   请输入编号: "
@@ -44,7 +57,8 @@ case $N in
   1) download_miaona ;;
   2) start_miaona ;;
   3) soga status ;;
-  4) exit ;;
+  4）uninstall_posidon ;;
+  5) exit ;;
   *) echo "Wrong input!" ;;
 esac 
 }

@@ -57,7 +57,7 @@ case $N in
   1) download_miaona ;;
   2) start_miaona ;;
   3) soga status ;;
-  4）uninstall_posidon ;;
+  4) uninstall_posidon ;;
   5) exit ;;
   *) echo "Wrong input!" ;;
 esac 
